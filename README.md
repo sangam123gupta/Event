@@ -68,3 +68,31 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### `Demo pics![3](https://user-images.githubusercontent.com/79571914/139802871-ac123abe-9567-46bd-a396-1f58e0232ad6.JPG)![![add new ticket](https://user-images.githubusercontent.com/79571914/141339958-fc797133-a91d-404b-a284-695cd7e36370.JPG)
+### Home Page
+Capture2](https://user-images.githubusercontent.com/79571914/139802921-97051cba-50f3-492f-ab1a-d61b4bc70018.JPG)
+
+### Delete Pics
+![add new ticket](https://user-images.githubusercontent.com/79571914/141340526-e9fc4e82-dc5b-4b65-8fa9-0806fa208888.JPG)
+
+
+### Edit Pics
+![edit](https://user-images.githubusercontent.com/79571914/141340196-39d9c2c1-e1f5-49db-95c0-6fe2c927c3a9.JPG)
+
+
+### Delete Pics
+
+![delete](https://user-images.githubusercontent.com/79571914/141340280-99acee05-0a04-4278-bfd1-ae307bd557dc.JPG)
+
+
+### Date Pics
+
+![date](https://user-images.githubusercontent.com/79571914/141340352-0293a2b0-82e5-4c90-87ed-f4ad44650971.JPG)
+
+### All date save Pics
+
+![all data saved](https://user-images.githubusercontent.com/79571914/141340470-f8ad5b33-22e7-4dd8-ae40-f9206bea8bd3.JPG)
+
+
+
