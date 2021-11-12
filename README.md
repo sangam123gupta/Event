@@ -91,7 +91,7 @@ Capture2](https://user-images.githubusercontent.com/79571914/139802921-97051cba-
 
 ![date](https://user-images.githubusercontent.com/79571914/141340352-0293a2b0-82e5-4c90-87ed-f4ad44650971.JPG)
 
-### All date save Pics
+### All data save Pics
 
 ![all data saved](https://user-images.githubusercontent.com/79571914/141340470-f8ad5b33-22e7-4dd8-ae40-f9206bea8bd3.JPG)
 
