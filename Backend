@@ -1,4 +1,3 @@
-
 const express=require('express');
 
 const app=express();
@@ -10,6 +9,8 @@ const bodyParser=require('body-parser');
 const jsonParser=bodyParser.json();
 
 const user=require('./users');
+
+const cors=require('cors');
 
 mongoose.connect('mongodb+srv://Ironman:OrgoSxAUlgqz0o2H@cluster0.7n7uo.mongodb.net/sangammyFirstDatabase?retryWrites=true&w=majority',{
 
@@ -23,7 +24,17 @@ useUnifiedTopology:true
     console.log("mongodb is not connected");
 })
 
-app.post('/create',jsonParser,function(req,res){
+
+app.use(express.json());
+
+
+// CORS policy
+
+app.use(cors());
+
+
+
+app.post('/event',jsonParser,function(req,res){
   
 
     const data=new user({
@@ -36,7 +47,7 @@ app.post('/create',jsonParser,function(req,res){
 
     email:req.body.email,
 
-    address:req.body.rating,
+    address:req.body.address,
 
     flag:req.body.flag,
 
@@ -65,45 +76,9 @@ app.post('/create',jsonParser,function(req,res){
 
 
 
-
-
-//////////////////
-
-
-//http://localhost:3005/insert
-
-app.post('/insert',jsonParser,function(req,res){
-  
-
-    const data=new user({
-    
-
-
-    _id: mongoose.Types.ObjectId(),
-
-    name:req.body.name,
-
-    email:req.body.email,
-
-    address:req.body.rating,
-
-    
-
-    })
-
-    data.save().then((result)=>{
-
-        console.log("data is saved")
-    })
-    .catch((err)=>{
-        console.log("data is not saved")
-    })
-       
-
-
 /////   Get
 
-app.get('/data/:id',function(req,res){
+app.get('/event/:id',function(req,res){
     
     user.findOne({_id:req.params.id}).then((data)=>{
 
@@ -112,7 +87,21 @@ app.get('/data/:id',function(req,res){
 })
 
 
-app.delete('/delete/:id',function(req,res){
+
+////  All data getting
+
+app.get('/event',function(req,res){
+    
+    user.find().then((data)=>{
+
+        res.json(data)
+            console.log(data)
+        
+    })
+})
+
+
+app.delete('/event/:id',function(req,res){
 
     user.deleteOne({_id:req.params.id}).
     then((result)=>{
@@ -129,11 +118,16 @@ app.delete('/delete/:id',function(req,res){
 
 ////////////                 update         //////
 
-app.put('/update/:id',jsonParser,function(req,res){
+app.put('/event/:id',jsonParser,function(req,res){
     user.updateOne({_id:req.params.id},{$set:{
         name:req.body.name,
         email:req.body.email,
-        address:req.body.address
+        address:req.body.address,
+        flag:req.body.flag,
+        selectedDate:req.body.selectedDate,
+        eventname:req.body.eventname,
+        descrption:req.body.descrption,
+        Organiser:req.body.Organiser
     }}).then((result)=>{
         res.status(200).json(result)
     })
@@ -142,7 +136,46 @@ app.put('/update/:id',jsonParser,function(req,res){
 })
 
 
+//  Create ticket api
+
+app.post('/ticket', jsonParser ,function(req,res){
+
+    let data=new user({
+
+        _id: mongoose.Types.ObjectId(),
+
+        name:req.body.name,
+    
+        email:req.body.email,
+    
+        address:req.body.address,
+
+    })
+
+    data.save().then((resp)=>{
+        res.json("data is now saved");
+        console.log("data is now saved");
+    })
+
+    .catch((err)=>{
+
+        console.log("data is not saved",err);
+    })
+})
 
 
+//  ticket put api
+
+app.put('/ticket/:id',jsonParser,function(req,res){
+    user.updateOne({_id:req.params.id},{$set:{
+        name:req.body.name,
+        email:req.body.email,
+        address:req.body.address,
+    }}).then((result)=>{
+        res.status(200).json(result)
+    })
+
+    .catch((err)=>{console.warn(err)})
+})
 
 app.listen(3005)
